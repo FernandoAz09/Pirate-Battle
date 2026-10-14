@@ -54,6 +54,8 @@ const SHIP_RADIUS = 16;
 const MAX_CHASERS = 3;
 const MAX_SHOOTERS = 2;
 const BOSS_SCORE_INTERVAL = 5;
+const SHIP_SCALE_FACTOR = 1.1;
+const CANNONBALL_SCALE_FACTOR = 1.05;
 const PLAYER_SHIPS: Record<string, string> = {
   ivory: playerShipUrl,
   red: redShipUrl,
@@ -168,7 +170,7 @@ export default function GameCanvas({ options, playerName, shipVariant, onFinish,
       const texture = type === 'player' ? playerTexture : pirateTexture;
       const sprite = Sprite.from(texture || playerShipUrl);
       sprite.anchor.set(0.5);
-      sprite.scale.set(type === 'player' ? 0.22 : type === 'boss' ? 0.32 : 0.18);
+      sprite.scale.set((type === 'player' ? 0.22 : type === 'boss' ? 0.32 : 0.18) * SHIP_SCALE_FACTOR);
       sprite.position.set(x, y);
       const healthBar = new Graphics();
       container.addChild(sprite, healthBar);
@@ -194,7 +196,7 @@ export default function GameCanvas({ options, playerName, shipVariant, onFinish,
       // O alcance é controlado pela vida do projétil; o boss usa um valor menor e dano maior.
       const sprite = Sprite.from(cannonBallTexture || cannonBallUrl);
       sprite.anchor.set(0.5);
-      sprite.scale.set(owner === 'player' ? 0.72 : 0.9);
+      sprite.scale.set((owner === 'player' ? 0.72 : 0.9) * CANNONBALL_SCALE_FACTOR);
       sprite.position.set(x, y);
       const speed = owner === 'player' ? 390 : 170;
       shots.push({ sprite, x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, life: range, owner, damage });
