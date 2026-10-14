@@ -57,6 +57,10 @@ button:disabled {
     min-height: 100vh;
 }
 
+.mobile-under-construction {
+    display: none;
+}
+
 .topbar {
     display: flex;
     align-items: center;
@@ -704,13 +708,50 @@ kbd {
 
 @media (min-width: 641px) {
     .app-shell {
-        width: min(100% - 20px, 1500px);
+        width: min(100% - 20px, 800px);
     }
 }
 
 @media (max-width: 640px) {
     .app-shell {
         width: min(100% - 20px, 1120px);
+    }
+
+    .app-shell > :not(.mobile-under-construction) {
+        display: none;
+    }
+
+    .mobile-under-construction {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+    }
+
+    .mobile-under-construction-card {
+        width: min(100%, 420px);
+        padding: 44px 28px;
+        border: 1px solid #31515a;
+        border-radius: 18px;
+        background: #102639dd;
+        box-shadow: 0 20px 80px #0005;
+        text-align: center;
+    }
+
+    .mobile-under-construction-card img {
+        width: min(180px, 70%);
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .mobile-under-construction-card h2 {
+        margin-bottom: 16px;
+        font-size: clamp(28px, 9vw, 40px);
+    }
+
+    .mobile-under-construction-card p:last-child {
+        margin-bottom: 0;
+        color: #adc2c5;
+        line-height: 1.7;
     }
 
     .topbar {

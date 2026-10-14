@@ -77,6 +77,14 @@ export default function App() {
 
   return (
     <main className={`app-shell ${screen}-page`}>
+      <section className="mobile-under-construction" aria-labelledby="mobile-under-construction-title">
+        <div className="mobile-under-construction-card">
+          <img src={jungleGamingLogo} alt="Jungle Gaming" />
+          <p className="eyebrow">PIRATE BATTLE</p>
+          <h2 id="mobile-under-construction-title">Still under construction</h2>
+          <p>Mobile version coming soon. Please access the game on a larger screen.</p>
+        </div>
+      </section>
       <header className="topbar">
         <div className="brand-mark"><img src={jungleGamingLogo} alt="Jungle Gaming" /></div>
         <div><p className="eyebrow">ARCADE SURVIVAL</p><h1>Pirate Battle</h1></div>
