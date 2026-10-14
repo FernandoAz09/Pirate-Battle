@@ -95,6 +95,7 @@ export default function GameCanvas({ options, playerName, shipVariant, onFinish,
     let lastFire = 0;
     let lastSideFire = 0;
     let hudText: Text | null = null;
+    let bossFightText: Text | null = null;
     let pauseText: Text | null = null;
     let world: Container | null = null;
     let player: Ship | null = null;
@@ -357,6 +358,21 @@ export default function GameCanvas({ options, playerName, shipVariant, onFinish,
       };
       scoreValueText = addCounter(620, scoreTexture);
       timeValueText = addCounter(790, timeTexture);
+      bossFightText = new Text({
+        text: 'BOSS FIGHT',
+        style: {
+          fill: '#ffe08a',
+          fontFamily: 'Arial',
+          fontSize: 25,
+          fontWeight: 'bold',
+          align: 'center',
+          stroke: { color: '#5b1725', width: 6 },
+        },
+      });
+      bossFightText.anchor.set(0.5);
+      bossFightText.position.set(480, 31);
+      bossFightText.visible = false;
+      app.stage.addChild(bossFightText);
       hudText = new Text({ text: '', style: hudTextStyle });
       hudText.visible = false;
       app.stage.addChild(hudText);
@@ -417,10 +433,12 @@ export default function GameCanvas({ options, playerName, shipVariant, onFinish,
         if (keys.has('q') && lastSideFire >= 0.8) { for (const offset of [-0.18, 0, 0.18]) addShot(world, player.x, player.y, player.angle - Math.PI / 2 + offset, 'player'); lastSideFire = 0; }
         if (keys.has('e') && lastSideFire >= 0.8) { for (const offset of [-0.18, 0, 0.18]) addShot(world, player.x, player.y, player.angle + Math.PI / 2 + offset, 'player'); lastSideFire = 0; }
 
+        const bossActive = ships.some((ship) => ship.type === 'boss' && ship.health > 0);
+        if (bossFightText) bossFightText.visible = bossActive;
+
         if (spawnElapsed >= options.spawnSeconds) {
           // No Arcade, o boss ocupa o fluxo de spawn até ser derrotado.
           const bossDue = options.mode === 'arcade' && score >= nextBossScore && bossSpawnedAtScore !== nextBossScore;
-          const bossActive = ships.some((ship) => ship.type === 'boss' && ship.health > 0);
 
           if (bossDue && !bossActive) {
             const edge = Math.floor(Math.random() * 4);

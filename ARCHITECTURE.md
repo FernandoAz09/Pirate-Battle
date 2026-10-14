@@ -17,7 +17,8 @@ regras de negócio ao canvas.
   resultado da partida e compõe os estados de carregamento, erro e paginação.
 - `src/game/GameCanvas.tsx` é o adaptador visual e de entrada do PixiJS. Ele
   recebe opções e callbacks, controla o ciclo visual da arena e devolve um
-  `GameResult` ao terminar. A UI não acessa objetos PixiJS diretamente.
+  `GameResult` ao terminar. No modo Arcade, também exibe o indicador `BOSS
+  FIGHT` enquanto o boss está ativo. A UI não acessa objetos PixiJS diretamente.
 - `src/types.ts` define os contratos compartilhados (`GameOptions`,
   `GameResult` e `EndReason`) usados pela UI, API e mocks.
 - `src/api.ts` concentra o cliente Axios e os casos de uso remotos:
