@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Test and coverage output
+playwright-report/
+test-results/
+coverage/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Tool caches and logs
+*.log
+.cache/
+.vite/
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
