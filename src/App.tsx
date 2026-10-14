@@ -138,7 +138,7 @@ export default function App() {
       {screen === 'game' && <section className="game-section">
         <div className="game-container">
           <div className="game-heading"><div><p className="eyebrow">LIVE COMBAT</p><h2>Survive the fleet</h2></div><button className="secondary-button" onClick={() => setScreen('menu')}>Abandon game</button></div>
-          <GameCanvas options={options} playerName={playerName || 'Captain'} shipVariant={shipVariant} onFinish={finishGame} onExit={() => setScreen('menu')} />
+          <GameCanvas options={options} playerName={playerName || 'Captain Unnamed'} shipVariant={shipVariant} onFinish={finishGame} onExit={() => setScreen('menu')} />
         </div>
       </section>}
 
@@ -150,7 +150,7 @@ export default function App() {
       </section>}
 
       {screen === 'ranking' && <RankingScreen options={options} page={rankingPage} setPage={setRankingPage} onBack={() => setScreen('menu')} />}
-      {screen === 'history' && <HistoryScreen playerName={playerName || 'Captain'} mode={options.mode} page={historyPage} setPage={setHistoryPage} onBack={() => setScreen('menu')} />}
+      {screen === 'history' && <HistoryScreen playerName={playerName || 'Captain Unnamed'} mode={options.mode} page={historyPage} setPage={setHistoryPage} onBack={() => setScreen('menu')} />}
     </main>
   );
 }

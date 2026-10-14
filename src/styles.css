@@ -11,7 +11,7 @@
     box-sizing: border-box;
 
     &:not(input, textarea) {
-       user-select: none;
+        user-select: none;
     }
 }
 
@@ -701,16 +701,11 @@ kbd {
     color: #f0a895;
 }
 
-footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    border-top: 1px solid #23434d;
-    margin-top: auto;
-    padding: 18px 0;
-    color: #67868d;
-    font: 10px 'DM Mono', monospace;
-    background-color: #23434d;
+
+@media (min-width: 641px) {
+    .app-shell {
+        width: min(100% - 20px, 1500px);
+    }
 }
 
 @media (max-width: 640px) {
