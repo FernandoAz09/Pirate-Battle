@@ -45,7 +45,6 @@ button:disabled {
 }
 
 .app-shell {
-    width: min(100%, 1560px);
     margin: 0 auto;
     min-height: 100vh;
     display: flex;
@@ -55,6 +54,7 @@ button:disabled {
 .app-shell .game-container {
     width: min(1120px, calc(100% - 32px));
     margin: 0 auto;
+    min-height: 100vh;
 }
 
 .topbar {
@@ -716,7 +716,6 @@ footer {
 @media (max-width: 640px) {
     .app-shell {
         width: min(100% - 20px, 1120px);
-        min-height: 100dvh;
     }
 
     .topbar {
@@ -734,7 +733,7 @@ footer {
     }
 
     .menu-panel {
-        min-height: min(650px, calc(100dvh - 36px));
+        min-height: 650px;
     }
 
     .menu-actions {
