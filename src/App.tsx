@@ -151,7 +151,6 @@ export default function App() {
 
       {screen === 'ranking' && <RankingScreen options={options} page={rankingPage} setPage={setRankingPage} onBack={() => setScreen('menu')} />}
       {screen === 'history' && <HistoryScreen playerName={playerName || 'Captain'} mode={options.mode} page={historyPage} setPage={setHistoryPage} onBack={() => setScreen('menu')} />}
-      <footer><span>Built for the open sea by Fernando Azevedo</span><span>React · TypeScript · PixiJS · TanStack Query</span></footer>
     </main>
   );
 }
